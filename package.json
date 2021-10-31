@@ -22,8 +22,8 @@
   },
   "homepage": "https://github.com/odevyatkov/sarva_gpx_builder#readme",
   "dependencies": {
-    "@babel/core": "7.9.6",
-    "@babel/node": "7.8.7",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
     "@babel/plugin-proposal-class-properties": "7.8.3",
     "@babel/plugin-proposal-export-default-from": "7.8.3",
     "@babel/plugin-proposal-export-namespace-from": "7.8.3",
