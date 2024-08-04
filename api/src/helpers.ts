@@ -6,9 +6,14 @@ export interface VersionInfo {
   api: string;
 }
 
-export interface RectanglePoints extends Cell {
+export interface RectanglePoints<T = string> extends Cell<T> {
   fromPoint: string;
   toPoint: string;
+}
+
+export interface CirclePoints<T = string> extends Cell<T> {
+  center: string;
+  radius: string;
 }
 
 export const isNullOrUndefined = (val: unknown): val is (null | undefined) => val === null || val === undefined;
