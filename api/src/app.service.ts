@@ -1,7 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { readFileSync } from 'node:fs';
 import { version } from 'process';
-import { VersionInfo } from './helpers';
+import { CirclePoints, RectanglePoints, VersionInfo } from './helpers';
+import {
+  RectangleType,
+  minMaxPoint,
+  PointPositionType,
+  parsePositionFromString,
+  buildExtent,
+  buildGpx,
+  buildGrid,
+  buildNamesDict,
+} from 'gpx-common';
 
 const packageJsonFile = '../package.json';
 
@@ -22,5 +32,23 @@ export class AppService {
     return {node: version, api: apiVersion};
   }
 
-  getRectangleExtent() {}
+  buildGpx(rectangleExtent: RectangleType, cellSize: number): string {
+    const grid = buildGrid(rectangleExtent, cellSize);
+    const nameDict: Record<'numeric'|'alphabet', Record<number, string>> = buildNamesDict(grid);
+
+    return buildGpx(rectangleExtent, grid, nameDict);
+  }
+
+  getRectangleExtent({ fromPoint, toPoint }: RectanglePoints, cellSize: number): RectangleType {
+    const {minPoint, maxPoint} = minMaxPoint(fromPoint, toPoint, cellSize);
+
+    return [minPoint[0], minPoint[1], maxPoint[0], maxPoint[1]];
+  }
+
+  getCircleExtent({center, radius}: CirclePoints): RectangleType {
+    const floatRadius = parseFloat(radius);
+    const centerPosition: PointPositionType = parsePositionFromString(center);
+
+    return buildExtent(centerPosition, floatRadius);
+  }
 }
