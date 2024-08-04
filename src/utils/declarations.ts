@@ -1,5 +1,5 @@
-export interface Cell {
-  cell: number;
+export interface Cell<T = string> {
+  cell: T;
 }
 
 export type Position = number[];

@@ -4,7 +4,7 @@ import { buildExtent } from './buildExtent';
 import destination from "@turf/destination";
 import { Cell, PointPositionType, Position, RectangleType } from './declarations';
 
-export interface RowData extends Cell {
+export interface RowData extends Cell<number> {
   center?: string;
   radius?: number;
   fromPoint?: string;
@@ -39,7 +39,9 @@ export function getDefaultFileName(data: RowData): string {
   }
 }
 
-function minMaxPoint(firstPoint: string, secondPoint: string, cellSize: number): {minPoint: PointPositionType, maxPoint: PointPositionType} {
+export const minMaxPoint = (
+  firstPoint: string, secondPoint: string, cellSize: number
+): {minPoint: PointPositionType, maxPoint: PointPositionType} => {
   const firstPosition: Position = parsePositionFromString(firstPoint);
   const secondPosition: Position = parsePositionFromString(secondPoint);
   const minPoint: PointPositionType = [
