@@ -1,8 +1,8 @@
 import * as fs from 'fs';
-import { Position } from '@turf/helpers/dist/js/lib/geojson';
 import { buildGPX, GarminBuilder } from 'gpx-builder';
 import Bounds from 'gpx-builder/dist/builder/BaseBuilder/models/Bounds';
 import Copyright from 'gpx-builder/dist/builder/BaseBuilder/models/Copyright';
+import { Position } from './declarations';
 
 interface Info {
   name: string;

@@ -1,6 +1,6 @@
-import { Position } from '@turf/helpers/dist/js/lib/geojson';
+import { PointPositionType } from './declarations';
 
-export const parsePositionFromString = (positionString: string): Position => {
+export const parsePositionFromString = (positionString: string): PointPositionType => {
   const point = positionString.split(',');
 
   if (point.length !== 2) {

@@ -4,7 +4,7 @@
   "description": "gpx builder for SARVA",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node --extensions '.ts' ./src/index.ts",
+    "start": "babel-node --extensions '.ts' src/cli/index.ts",
     "test": "npm run test"
   },
   "repository": {
@@ -15,7 +15,7 @@
     "SARVA",
     "gpx"
   ],
-  "author": "oleksandr devyatkov",
+  "author": "Oleksandr Devyatkov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/odevyatkov/sarva_gpx_builder/issues"

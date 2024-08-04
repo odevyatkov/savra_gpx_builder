@@ -1,7 +1,7 @@
-import { Position } from '@turf/helpers/dist/js/lib/geojson';
 import destination from '@turf/destination';
+import { PointPositionType, RectangleType } from './declarations';
 
-export const buildExtent = (center: Position, radius: number): [number, number, number, number] => {
+export const buildExtent = (center: PointPositionType, radius: number): RectangleType => {
   const rightCenterPoint = destination({
     type: 'Point',
     coordinates: center,
