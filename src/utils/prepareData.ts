@@ -1,7 +1,7 @@
 import { Position } from '@turf/helpers/dist/js/lib/geojson';
 import distance from '@turf/distance';
-import parsePositionFromString from '../parsers/parsePositionFromString';
-import buildExtent from './buildExtent';
+import { parsePositionFromString } from './parsePositionFromString';
+import { buildExtent } from './buildExtent';
 import destination from "@turf/destination";
 
 export interface RowData {
@@ -18,17 +18,9 @@ export function getExtent(data: RowData): [number,number,number,number] {
 
     return buildExtent(centerPosition, data.radius);
   } else if (data.fromPoint && data.toPoint && data.cell) {
-    const {
-      minPoint,
-      maxPoint,
-    } = minMaxPoint(data.fromPoint, data.toPoint, data.cell);
+    const { minPoint, maxPoint } = minMaxPoint(data.fromPoint, data.toPoint, data.cell);
 
-    return [
-      minPoint[0],
-      minPoint[1],
-      maxPoint[0],
-      maxPoint[1],
-    ];
+    return [minPoint[0], minPoint[1], maxPoint[0], maxPoint[1]];
   } else {
     throw new Error('Invalid params');
   }
@@ -40,10 +32,7 @@ export function getDefaultFileName(data: RowData): string {
 
     return `${centerPosition[1]}_${centerPosition[0]}_${data.radius}x${data.radius}_${data.cell}`;
   } else if (data.fromPoint && data.toPoint && data.cell) {
-    const {
-      minPoint,
-      maxPoint,
-    } = minMaxPoint(data.fromPoint, data.toPoint, data.cell);
+    const { minPoint, maxPoint } = minMaxPoint(data.fromPoint, data.toPoint, data.cell);
 
     return `${minPoint[1]}_${minPoint[0]}_${maxPoint[1]}_${maxPoint[0]}_${data.cell}`;
   } else {

@@ -12,11 +12,11 @@ interface Info {
 const { Point, Metadata } = GarminBuilder.MODELS;
 const packageInfoName = 'package.json';
 
-export default function buildGpx(
+export const buildGpx = (
   extent: [number, number, number, number],
   positions: Position[],
   nameDict: Record<'numeric'|'alphabet', Record<number, string>>
-): string {
+): string => {
   const gpxData = new GarminBuilder();
   const points = positions.map((position: Position) => {
     return new Point(position[1], position[0], {
