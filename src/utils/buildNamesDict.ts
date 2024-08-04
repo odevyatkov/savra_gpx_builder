@@ -1,4 +1,4 @@
-import {Position} from '@turf/helpers/lib/geojson';
+import { Position } from '@turf/helpers/dist/js/lib/geojson';
 
 export default function buildNamesDict(positions: Position[]): Record<'numeric'|'alphabet', Record<number, string>> {
   let numericCoords = [];

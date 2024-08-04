@@ -1,14 +1,9 @@
 #!/usr/bin/env node
 import * as fs from 'fs';
-
 import buildGrid from './utils/buildGrid';
 import buildGpx from './utils/buildGpx';
 import buildNamesDict from './utils/buildNamesDict';
-import {
-  RowData,
-  getDefaultFileName,
-  getExtent,
-} from './utils/prepareData';
+import { getDefaultFileName, getExtent, RowData } from './utils/prepareData';
 
 const argv = require('yargs').argv;
 

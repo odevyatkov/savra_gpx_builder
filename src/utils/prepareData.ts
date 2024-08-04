@@ -1,6 +1,4 @@
-import {
-  Position,
-} from '@turf/helpers/lib/geojson';
+import { Position } from '@turf/helpers/dist/js/lib/geojson';
 import distance from '@turf/distance';
 import parsePositionFromString from '../parsers/parsePositionFromString';
 import buildExtent from './buildExtent';
@@ -19,7 +17,7 @@ export function getExtent(data: RowData): [number,number,number,number] {
     const centerPosition: Position = parsePositionFromString(data.center);
 
     return buildExtent(centerPosition, data.radius);
-  } else if (data.fromPoint && data.fromPoint && data.cell) {
+  } else if (data.fromPoint && data.toPoint && data.cell) {
     const {
       minPoint,
       maxPoint,

@@ -1,4 +1,4 @@
-import {Position} from '@turf/helpers/lib/geojson';
+import { Position } from '@turf/helpers/dist/js/lib/geojson';
 import destination from '@turf/destination';
 
 export default function buildExtent(center: Position, radius: number): [number, number, number, number] {
