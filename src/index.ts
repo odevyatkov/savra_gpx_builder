@@ -17,10 +17,10 @@ try {
   };
   const extent: [number,number,number,number] = getExtent(data);
   const fileName: string = `${argv.name || getDefaultFileName(data)}.gpx`;
-
   const grid = buildGrid(extent, data.cell);
   const nameDict: Record<'numeric'|'alphabet', Record<number, string>> = buildNamesDict(grid);
   const xml = buildGpx(extent, grid, nameDict);
+
   fs.writeFile(fileName, xml, function (err) {
     if (err) {
       return console.log(err)
