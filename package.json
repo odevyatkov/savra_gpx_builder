@@ -6,6 +6,8 @@
   "scripts": {
     "start": "babel-node --extensions '.ts' src/cli/index.ts",
     "package": "cd src; npm run build",
+    "api": "cd api; npm run start",
+    "swagger": "cd api; npm run start:dev",
     "test": "npm run test"
   },
   "repository": {

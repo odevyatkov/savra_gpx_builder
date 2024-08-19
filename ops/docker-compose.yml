@@ -1,0 +1,7 @@
+services:
+  gpx-builder-api:
+    image: i-gpx-builder-api
+    container_name: gpx-builder-api
+    restart: always
+    ports:
+      - 3000:3000
