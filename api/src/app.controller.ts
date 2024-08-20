@@ -21,7 +21,7 @@ export class AppController {
     const cellSize = query.cell ? parseFloat(query.cell) : 1;
     const rectangleExtent = this.appService.getRectangleExtent(query, cellSize);
 
-    console.log({handler: 'getByRectangle', ...query});
+    console.log({handler: 'getByRectangle', timestamp: new Date().toISOString(), query: JSON.stringify(query)});
 
     return this.appService.buildGpx(rectangleExtent, cellSize);
   }
@@ -33,6 +33,8 @@ export class AppController {
   getByRadius(@Query() query: CirclePoints): string {
     const cellSize = query.cell ? parseFloat(query.cell) : 1;
     const rectangleExtent: RectangleType = this.appService.getCircleExtent(query);
+
+    console.log({handler: 'getByRadius', timestamp: new Date().toISOString(), query: JSON.stringify(query)});
 
     return this.appService.buildGpx(rectangleExtent, cellSize);
   }
