@@ -1,0 +1,15 @@
+{
+  "name": "gpx-common",
+  "version": "1.0.0",
+  "description": "Library and example how to use it by command line",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleksandr Devyatkov",
+  "license": "ISC",
+  "dependencies": {
+    "rimraf": "^6.0.1"
+  }
+}

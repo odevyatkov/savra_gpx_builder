@@ -1,7 +1,7 @@
-import {Position} from '@turf/helpers/lib/geojson';
 import destination from '@turf/destination';
+import { PointPositionType, RectangleType } from './declarations';
 
-export default function buildExtent(center: Position, radius: number): [number, number, number, number] {
+export const buildExtent = (center: PointPositionType, radius: number): RectangleType => {
   const rightCenterPoint = destination({
     type: 'Point',
     coordinates: center,
@@ -14,10 +14,5 @@ export default function buildExtent(center: Position, radius: number): [number, 
   const lngDiff = rightCenterPoint[1] - center[1];
 
   // [minX, minY, maxX, maxY]
-  return [
-    center[0] - latDiff,
-    center[1] - lngDiff,
-    center[0] + latDiff,
-    center[1] + lngDiff,
-  ];
+  return [center[0] - latDiff, center[1] - lngDiff, center[0] + latDiff, center[1] + lngDiff];
 }
